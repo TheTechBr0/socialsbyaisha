@@ -1,3 +1,6 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import SiteShell from "./components/site-shell";
@@ -45,18 +48,22 @@ const serviceCards = [
   {
     title: "Brand identity",
     description: "Visual systems, custom tone, and assets that make your brand easier to remember and trust.",
+    tone: "bg-[#fff8f0]",
   },
   {
     title: "Social media growth",
     description: "Content calendars, headline structure, and campaign ideas built to keep your audience engaged.",
+    tone: "bg-[#e9fbf7]",
   },
   {
     title: "Website direction",
     description: "Landing pages and digital layouts that sharpen your message and guide people to act.",
+    tone: "bg-white",
   },
   {
     title: "Creative strategy",
     description: "Planning that translates business goals into a clear, consistent online presence.",
+    tone: "bg-[#fff1e6]",
   },
 ];
 
@@ -93,6 +100,22 @@ const team = featuredPhotos.slice(1);
 const teamPositions = ["left-[2%] top-[8%]", "right-[2%] top-[8%]", "left-1/2 bottom-0 -translate-x-1/2"];
 
 export default function Home() {
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+
+  const toggleVideo = async () => {
+    const video = videoRef.current;
+    if (!video) return;
+
+    if (video.paused) {
+      await video.play();
+      setIsPlaying(true);
+    } else {
+      video.pause();
+      setIsPlaying(false);
+    }
+  };
+
   return (
     <SiteShell activePage="home">
       <section className="relative overflow-hidden">
@@ -192,8 +215,23 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-3 shadow-sm">
-            <video className="h-full w-full rounded-[1.4rem] bg-slate-950" src="/aishavid.MOV" autoPlay playsInline loop preload="metadata" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white p-3 shadow-sm">
+            <video
+              ref={videoRef}
+              className="h-full w-full rounded-[1.4rem] bg-slate-950"
+              src="/aishavid.MOV"
+              autoPlay
+              playsInline
+              preload="metadata"
+            />
+
+            <button
+              type="button"
+              onClick={toggleVideo}
+              className="absolute bottom-6 right-6 inline-flex items-center gap-2 rounded-full bg-[#28c1a1] px-4 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white shadow-lg shadow-[#28c1a1]/25 transition hover:bg-[#1f9a86]"
+            >
+              {isPlaying ? "Pause" : "Play"}
+            </button>
           </div>
         </div>
       </section>
@@ -221,24 +259,37 @@ export default function Home() {
 
           <div className="rounded-[2rem] border border-slate-200 bg-[#f8f5ef] p-8 shadow-sm sm:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f59e0b]">Our people</p>
-            <div className="relative mt-10 hidden h-[420px] lg:block">
-              <div aria-hidden className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#28c1a1]/20" />
-
-              <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
-                <div className="relative mx-auto h-48 w-48 overflow-hidden rounded-full border-4 border-white shadow-[0_20px_55px_-15px_rgba(40,193,161,0.34)] ring-4 ring-[#f59e0b]/30 transition duration-500 hover:scale-105">
-                  <Image src={founder.src} alt={founder.alt} fill className="object-cover" />
-                </div>
-                <p className="mt-3 text-sm font-semibold text-slate-900">{founder.label}</p>
-              </div>
-
-              {team.map((photo, index) => (
-                <div key={photo.src} className={`absolute ${teamPositions[index]} text-center`}>
-                  <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105">
-                    <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
+            <div className="relative mt-10 hidden h-[460px] lg:block">
+              <div aria-hidden className="absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#28c1a1]/25" />
+              <div className="team-orbit absolute inset-0">
+                <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
+                  <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-full border-4 border-white shadow-[0_30px_70px_-18px_rgba(40,193,161,0.45)] ring-4 ring-[#f59e0b]/35 transition duration-500 hover:scale-105">
+                    <Image src={founder.src} alt={founder.alt} fill className="object-cover" />
                   </div>
-                  <p className="mt-2 max-w-[7rem] text-xs font-semibold text-slate-900">{photo.label}</p>
+                  <p className="mt-3 text-sm font-semibold text-slate-900">{founder.label}</p>
                 </div>
-              ))}
+
+                <div className="team-orbit-card absolute left-[9%] top-[20%] text-center">
+                  <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105">
+                    <Image src={team[0].src} alt={team[0].alt} fill className="object-cover" />
+                  </div>
+                  <p className="mt-2 max-w-28 text-xs font-semibold text-slate-900">{team[0].label}</p>
+                </div>
+
+                <div className="team-orbit-card absolute right-[9%] top-[20%] text-center">
+                  <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105">
+                    <Image src={team[1].src} alt={team[1].alt} fill className="object-cover" />
+                  </div>
+                  <p className="mt-2 max-w-28 text-xs font-semibold text-slate-900">{team[1].label}</p>
+                </div>
+
+                <div className="team-orbit-card absolute bottom-[6%] left-1/2 -translate-x-1/2 text-center">
+                  <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105">
+                    <Image src={team[2].src} alt={team[2].alt} fill className="object-cover" />
+                  </div>
+                  <p className="mt-2 max-w-28 text-xs font-semibold text-slate-900">{team[2].label}</p>
+                </div>
+              </div>
             </div>
 
             <div className="mt-8 lg:hidden">
@@ -319,7 +370,10 @@ export default function Home() {
 
           <div className="mt-8 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {serviceCards.map((card) => (
-              <article key={card.title} className="rounded-[1.4rem] border border-slate-200 bg-[#f8f5ef] p-5 transition hover:-translate-y-1 hover:border-[#f59e0b]/50 hover:shadow-md">
+              <article
+                key={card.title}
+                className={`rounded-[1.4rem] border border-slate-200 p-5 transition hover:-translate-y-1 hover:border-[#f59e0b]/50 hover:shadow-md ${card.tone}`}
+              >
                 <p className="text-base font-semibold text-slate-900">{card.title}</p>
                 <p className="mt-3 text-sm leading-7 text-slate-600">{card.description}</p>
               </article>

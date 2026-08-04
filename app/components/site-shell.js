@@ -16,16 +16,16 @@ export default function SiteShell({ children, activePage = "home" }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.16),_transparent_22%),radial-gradient(circle_at_bottom_right,_rgba(40,193,161,0.18),_transparent_24%)] text-slate-800">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.16),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(40,193,161,0.18),transparent_24%)] text-slate-800">
       <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-[#f8f5ef]/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center">
             <div className="flex items-center justify-center rounded-full p-1">
-              <Image src="/socialsbyaishalogo.png" alt="Socials by Aisha logo" width={192} height={192} priority className="h-auto w-32 sm:w-40" />
+              <Image src="/socialsbyaishalogo.png" alt="Socials by Aisha logo" width={160} height={160} priority className="h-auto w-24 sm:w-32" />
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex">
+          <nav className="hidden items-center gap-4 text-sm font-medium text-slate-600 md:flex">
             {navItems.map((item) => {
               const isActive = activePage === item.label.toLowerCase();
               return (

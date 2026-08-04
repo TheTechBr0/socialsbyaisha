@@ -84,6 +84,15 @@ a {
   }
 }
 
+@keyframes orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .brand-marquee {
   width: max-content;
   animation: marquee 24s linear infinite;
@@ -99,6 +108,18 @@ a {
 
 .hero-glow {
   animation: shimmer 8s ease-in-out infinite;
+}
+
+.team-orbit {
+  animation: orbit-spin 22s linear infinite;
+}
+
+.team-orbit-card {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+
+.team-orbit-card:hover {
+  transform: translateY(-4px) scale(1.03);
 }
 
 .brand-card {
@@ -120,7 +141,8 @@ a {
   .brand-marquee,
   .hero-float,
   .home-animate,
-  .hero-glow {
+  .hero-glow,
+  .team-orbit {
     animation: none;
   }
 }

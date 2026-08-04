@@ -18,14 +18,14 @@ export default function SiteShell({ children, activePage = "home" }) {
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.16),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(40,193,161,0.18),transparent_24%)] text-slate-800">
       <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-[#f8f5ef]/90 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2.5 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center">
             <div className="flex items-center justify-center rounded-full p-1">
-              <Image src="/socialsbyaishalogo.png" alt="Socials by Aisha logo" width={160} height={160} priority className="h-auto w-24 sm:w-32" />
+              <Image src="/socialsbyaishalogo.png" alt="Socials by Aisha logo" width={140} height={140} priority className="h-auto w-20 sm:w-24" />
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-4 text-sm font-medium text-slate-600 md:flex">
+          <nav className="hidden items-center gap-3.5 text-sm font-medium text-slate-600 md:flex">
             {navItems.map((item) => {
               const isActive = activePage === item.label.toLowerCase();
               return (

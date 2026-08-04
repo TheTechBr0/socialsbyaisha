@@ -48,37 +48,36 @@ export default function TeamPage() {
         </div>
 
         <div className="mt-10 hidden lg:block">
-          <div className="relative mx-auto h-[460px] max-w-[720px]">
-            <div aria-hidden className="absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#28c1a1]/25" />
-            <div className="team-orbit absolute inset-0">
-              <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
-                <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-full border-4 border-white shadow-[0_30px_70px_-18px_rgba(40,193,161,0.45)] ring-4 ring-[#f59e0b]/35">
-                  <Image src={members[1].image} alt={members[1].name} width={240} height={240} className="h-full w-full object-cover" />
-                </div>
-                <p className="mt-3 text-sm font-semibold text-slate-900">{members[1].name}</p>
-                <p className="mt-1 text-xs font-semibold uppercase tracking-[0.24em] text-[#28c1a1]">Founder</p>
-              </div>
+          <div className="relative mx-auto h-[520px] max-w-[760px]">
+            <div aria-hidden className="absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#28c1a1]/25" />
 
-              <div className="team-orbit-card absolute left-[8%] top-[20%] text-center">
-                <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md">
-                  <Image src={members[0].image} alt={members[0].name} width={180} height={180} className="h-full w-full object-cover" />
-                </div>
-                <p className="mt-2 max-w-28 text-xs font-semibold text-slate-900">{members[0].name}</p>
+            <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
+              <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-full border-4 border-white shadow-[0_30px_70px_-18px_rgba(40,193,161,0.45)] ring-4 ring-[#f59e0b]/35">
+                <Image src={members[1].image} alt={members[1].name} width={280} height={280} className="h-full w-full object-cover" />
               </div>
+              <p className="mt-3 text-sm font-semibold text-slate-900">{members[1].name}</p>
+              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.24em] text-[#28c1a1]">Founder</p>
+            </div>
 
-              <div className="team-orbit-card absolute right-[8%] top-[20%] text-center">
-                <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md">
-                  <Image src={members[2].image} alt={members[2].name} width={180} height={180} className="h-full w-full object-cover" />
-                </div>
-                <p className="mt-2 max-w-28 text-xs font-semibold text-slate-900">{members[2].name}</p>
+            <div className="absolute left-[8%] top-[20%] text-center">
+              <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-md">
+                <Image src={members[0].image} alt={members[0].name} width={180} height={180} className="h-full w-full object-cover" />
               </div>
+              <p className="mt-2 max-w-32 text-xs font-semibold text-slate-900">{members[0].name}</p>
+            </div>
 
-              <div className="team-orbit-card absolute bottom-[6%] left-1/2 -translate-x-1/2 text-center">
-                <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md">
-                  <Image src={members[3].image} alt={members[3].name} width={180} height={180} className="h-full w-full object-cover" />
-                </div>
-                <p className="mt-2 max-w-28 text-xs font-semibold text-slate-900">{members[3].name}</p>
+            <div className="absolute right-[8%] top-[20%] text-center">
+              <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-md">
+                <Image src={members[2].image} alt={members[2].name} width={180} height={180} className="h-full w-full object-cover" />
               </div>
+              <p className="mt-2 max-w-32 text-xs font-semibold text-slate-900">{members[2].name}</p>
+            </div>
+
+            <div className="absolute bottom-[4%] left-1/2 -translate-x-1/2 text-center">
+              <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-md">
+                <Image src={members[3].image} alt={members[3].name} width={180} height={180} className="h-full w-full object-cover" />
+              </div>
+              <p className="mt-2 max-w-32 text-xs font-semibold text-slate-900">{members[3].name}</p>
             </div>
           </div>
         </div>

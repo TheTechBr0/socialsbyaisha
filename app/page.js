@@ -261,14 +261,15 @@ export default function Home() {
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f59e0b]">Our people</p>
             <div className="relative mt-10 hidden h-[460px] lg:block">
               <div aria-hidden className="absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#28c1a1]/25" />
-              <div className="team-orbit absolute inset-0">
-                <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
-                  <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-full border-4 border-white shadow-[0_30px_70px_-18px_rgba(40,193,161,0.45)] ring-4 ring-[#f59e0b]/35 transition duration-500 hover:scale-105">
-                    <Image src={founder.src} alt={founder.alt} fill className="object-cover" />
-                  </div>
-                  <p className="mt-3 text-sm font-semibold text-slate-900">{founder.label}</p>
-                </div>
 
+              <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
+                <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-full border-4 border-white shadow-[0_30px_70px_-18px_rgba(40,193,161,0.45)] ring-4 ring-[#f59e0b]/35 transition duration-500 hover:scale-105">
+                  <Image src={founder.src} alt={founder.alt} fill className="object-cover" />
+                </div>
+                <p className="mt-3 text-sm font-semibold text-slate-900">{founder.label}</p>
+              </div>
+
+              <div className="team-orbit absolute inset-0">
                 <div className="team-orbit-card absolute left-[9%] top-[20%] text-center">
                   <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105">
                     <Image src={team[0].src} alt={team[0].alt} fill className="object-cover" />

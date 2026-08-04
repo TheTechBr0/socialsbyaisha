@@ -47,53 +47,18 @@ export default function TeamPage() {
           </p>
         </div>
 
-        <div className="mt-10 hidden lg:block">
-          <div className="relative mx-auto h-[520px] max-w-[760px]">
-            <div aria-hidden className="absolute left-1/2 top-1/2 h-[380px] w-[380px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#28c1a1]/25" />
-
-            <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
-              <div className="relative mx-auto h-64 w-64 overflow-hidden rounded-full border-4 border-white shadow-[0_30px_70px_-18px_rgba(40,193,161,0.45)] ring-4 ring-[#f59e0b]/35">
-                <Image src={members[1].image} alt={members[1].name} width={280} height={280} className="h-full w-full object-cover" />
-              </div>
-              <p className="mt-3 text-sm font-semibold text-slate-900">{members[1].name}</p>
-              <p className="mt-1 text-xs font-semibold uppercase tracking-[0.24em] text-[#28c1a1]">Founder</p>
-            </div>
-
-            <div className="absolute left-[8%] top-[20%] text-center">
-              <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-md">
-                <Image src={members[0].image} alt={members[0].name} width={180} height={180} className="h-full w-full object-cover" />
-              </div>
-              <p className="mt-2 max-w-32 text-xs font-semibold text-slate-900">{members[0].name}</p>
-            </div>
-
-            <div className="absolute right-[8%] top-[20%] text-center">
-              <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-md">
-                <Image src={members[2].image} alt={members[2].name} width={180} height={180} className="h-full w-full object-cover" />
-              </div>
-              <p className="mt-2 max-w-32 text-xs font-semibold text-slate-900">{members[2].name}</p>
-            </div>
-
-            <div className="absolute bottom-[4%] left-1/2 -translate-x-1/2 text-center">
-              <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-full border-4 border-white shadow-md">
-                <Image src={members[3].image} alt={members[3].name} width={180} height={180} className="h-full w-full object-cover" />
-              </div>
-              <p className="mt-2 max-w-32 text-xs font-semibold text-slate-900">{members[3].name}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:hidden">
+        <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
           {members.map((member, index) => {
             const isFeatured = member.featured;
             return (
               <article
                 key={`${member.name}-${index}`}
-                className={`rounded-[1.75rem] border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg ${isFeatured ? "md:col-span-2" : ""}`}
+                className={`border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-lg ${isFeatured ? "md:col-span-2 xl:col-span-1" : ""}`}
               >
                 <div className={`mx-auto flex items-center justify-center overflow-hidden rounded-full border-4 border-white shadow-lg ${isFeatured ? "h-36 w-36 md:h-40 md:w-40" : "h-24 w-24"}`}>
                   <Image src={member.image} alt={member.name} width={180} height={180} className="h-full w-full object-cover" />
                 </div>
-                <div className={`mt-5 rounded-[1.25rem] p-4 ${member.accent}`}>
+                <div className={`mt-5 p-4 ${member.accent}`}>
                   <h2 className="text-xl font-semibold">{member.name}</h2>
                   <p className={`mt-1 text-sm font-medium ${isFeatured ? "text-[#fff8f0]" : "text-[#f59e0b]"}`}>{member.role}</p>
                   <p className={`mt-3 text-sm leading-7 ${isFeatured ? "text-slate-100" : "text-slate-600"}`}>{member.description}</p>

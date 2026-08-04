@@ -84,12 +84,12 @@ a {
   }
 }
 
-@keyframes orbit-spin {
+@keyframes orbit-card {
   from {
-    transform: rotate(0deg);
+    transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--radius)) rotate(calc(var(--angle) * -1));
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(-50%, -50%) rotate(calc(var(--angle) + 360deg)) translateX(var(--radius)) rotate(calc((var(--angle) + 360deg) * -1));
   }
 }
 
@@ -116,16 +116,40 @@ a {
 }
 
 .team-orbit {
-  animation: orbit-spin 24s linear infinite;
+  animation: none;
 }
 
 .team-orbit-card {
-  transition: transform 220ms ease, box-shadow 220ms ease;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7rem;
+  transition: box-shadow 220ms ease, filter 220ms ease;
   transform-origin: center center;
+  animation: orbit-card 22s linear infinite;
+}
+
+.team-orbit-left {
+  --angle: 0deg;
+  --radius: -11rem;
+  animation-delay: -4s;
+}
+
+.team-orbit-right {
+  --angle: 120deg;
+  --radius: 11rem;
+  animation-delay: -9s;
+}
+
+.team-orbit-bottom {
+  --angle: 240deg;
+  --radius: 10rem;
+  animation-duration: 24s;
+  animation-delay: -13s;
 }
 
 .team-orbit-card:hover {
-  transform: translateY(-4px) scale(1.03);
+  filter: brightness(1.05);
 }
 
 .brand-card {
@@ -140,6 +164,22 @@ a {
 @media (max-width: 640px) {
   .brand-marquee {
     animation-duration: 18s;
+  }
+
+  .team-orbit-card {
+    width: 5.8rem;
+  }
+
+  .team-orbit-left {
+    --radius: -8.5rem;
+  }
+
+  .team-orbit-right {
+    --radius: 8.5rem;
+  }
+
+  .team-orbit-bottom {
+    --radius: 7.5rem;
   }
 }
 

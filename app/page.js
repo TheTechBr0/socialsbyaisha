@@ -259,56 +259,37 @@ export default function Home() {
 
           <div className="rounded-[2rem] border border-slate-200 bg-[#f8f5ef] p-8 shadow-sm sm:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#f59e0b]">Our people</p>
-            <div className="relative mt-10 hidden h-[460px] lg:block">
-              <div aria-hidden className="absolute left-1/2 top-1/2 h-[340px] w-[340px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#28c1a1]/25" />
+            <div className="relative mt-10 h-[400px] sm:h-[430px] lg:h-[460px]">
+              <div aria-hidden className="absolute left-1/2 top-1/2 h-[280px] w-[280px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-[#28c1a1]/25 sm:h-[320px] sm:w-[320px] lg:h-[340px] lg:w-[340px]" />
 
-              <div className="absolute left-1/2 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 text-center">
-                <div className="relative mx-auto h-56 w-56 overflow-hidden rounded-full border-4 border-white shadow-[0_30px_70px_-18px_rgba(40,193,161,0.45)] ring-4 ring-[#f59e0b]/35 transition duration-500 hover:scale-105">
+              <div className="absolute left-1/2 top-1/2 z-20 -translate-x-1/2 -translate-y-1/2 text-center">
+                <div className="relative mx-auto h-44 w-44 overflow-hidden rounded-full border-4 border-white shadow-[0_30px_70px_-18px_rgba(40,193,161,0.45)] ring-4 ring-[#f59e0b]/35 sm:h-52 sm:w-52 lg:h-56 lg:w-56">
                   <Image src={founder.src} alt={founder.alt} fill className="object-cover" />
                 </div>
                 <p className="mt-3 text-sm font-semibold text-slate-900">{founder.label}</p>
               </div>
 
-              <div className="team-orbit absolute inset-0">
-                <div className="team-orbit-card absolute left-[9%] top-[20%] text-center">
-                  <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105">
+              <div className="team-orbit absolute inset-0 z-10">
+                <div className="team-orbit-card team-orbit-left text-center">
+                  <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105 sm:h-28 sm:w-28 lg:h-28 lg:w-28">
                     <Image src={team[0].src} alt={team[0].alt} fill className="object-cover" />
                   </div>
                   <p className="mt-2 max-w-28 text-xs font-semibold text-slate-900">{team[0].label}</p>
                 </div>
 
-                <div className="team-orbit-card absolute right-[9%] top-[20%] text-center">
-                  <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105">
+                <div className="team-orbit-card team-orbit-right text-center">
+                  <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105 sm:h-28 sm:w-28 lg:h-28 lg:w-28">
                     <Image src={team[1].src} alt={team[1].alt} fill className="object-cover" />
                   </div>
                   <p className="mt-2 max-w-28 text-xs font-semibold text-slate-900">{team[1].label}</p>
                 </div>
 
-                <div className="team-orbit-card absolute bottom-[6%] left-1/2 -translate-x-1/2 text-center">
-                  <div className="relative mx-auto h-28 w-28 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105">
+                <div className="team-orbit-card team-orbit-bottom text-center">
+                  <div className="relative mx-auto h-24 w-24 overflow-hidden rounded-full border-4 border-white shadow-md transition duration-300 hover:scale-105 sm:h-28 sm:w-28 lg:h-28 lg:w-28">
                     <Image src={team[2].src} alt={team[2].alt} fill className="object-cover" />
                   </div>
                   <p className="mt-2 max-w-28 text-xs font-semibold text-slate-900">{team[2].label}</p>
                 </div>
-              </div>
-            </div>
-
-            <div className="mt-8 lg:hidden">
-              <div className="mx-auto w-fit text-center">
-                <div className="relative mx-auto h-40 w-40 overflow-hidden rounded-full border-4 border-white shadow-[0_20px_55px_-15px_rgba(40,193,161,0.34)] ring-4 ring-[#f59e0b]/30">
-                  <Image src={founder.src} alt={founder.alt} fill className="object-cover" />
-                </div>
-                <p className="mt-3 text-sm font-semibold text-slate-900">{founder.label}</p>
-              </div>
-              <div className="mt-8 grid grid-cols-3 gap-4">
-                {team.map((photo) => (
-                  <div key={photo.src} className="text-center">
-                    <div className="relative mx-auto h-20 w-20 overflow-hidden rounded-full border-4 border-white shadow-md">
-                      <Image src={photo.src} alt={photo.alt} fill className="object-cover" />
-                    </div>
-                    <p className="mt-2 text-xs font-semibold text-slate-900">{photo.label}</p>
-                  </div>
-                ))}
               </div>
             </div>
           </div>

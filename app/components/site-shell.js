@@ -16,16 +16,12 @@ export default function SiteShell({ children, activePage = "home" }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(255,122,89,0.16),_transparent_22%),radial-gradient(circle_at_bottom_right,_rgba(61,44,90,0.18),_transparent_24%)] text-slate-800">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,_rgba(245,158,11,0.16),_transparent_22%),radial-gradient(circle_at_bottom_right,_rgba(40,193,161,0.18),_transparent_24%)] text-slate-800">
       <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-[#f8f5ef]/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#3d2c5a] p-1 shadow-lg shadow-[#3d2c5a]/20">
-              <Image src="/socialsbyaishalogo.png" alt="Socials by Aisha logo" width={36} height={36} priority />
-            </div>
-            <div>
-              <p className="text-sm font-semibold tracking-[0.2em] text-[#3d2c5a] uppercase">Socials by Aisha</p>
-              <p className="text-xs text-slate-500">Branding • Content • Growth</p>
+          <Link href="/" className="flex items-center">
+            <div className="flex items-center justify-center rounded-full p-1">
+              <Image src="/socialsbyaishalogo.png" alt="Socials by Aisha logo" width={192} height={192} priority className="h-auto w-32 sm:w-40" />
             </div>
           </Link>
 
@@ -36,7 +32,7 @@ export default function SiteShell({ children, activePage = "home" }) {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`transition hover:text-[#3d2c5a] ${isActive ? "text-[#3d2c5a]" : ""}`}
+                  className={`transition hover:text-[#28c1a1] ${isActive ? "text-[#28c1a1]" : ""}`}
                 >
                   {item.label}
                 </Link>
@@ -61,7 +57,7 @@ export default function SiteShell({ children, activePage = "home" }) {
 
       <aside className={`fixed right-0 top-0 z-50 flex h-full w-72 max-w-[85vw] flex-col border-l border-slate-200 bg-[#f8f5ef] p-6 shadow-2xl transition-transform duration-300 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex items-center justify-between">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#3d2c5a]">Menu</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#28c1a1]">Menu</p>
           <button type="button" onClick={() => setIsOpen(false)} className="rounded-full border border-slate-300 bg-white p-2 text-slate-700" aria-label="Close navigation">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -73,7 +69,7 @@ export default function SiteShell({ children, activePage = "home" }) {
           {navItems.map((item) => {
             const isActive = activePage === item.label.toLowerCase();
             return (
-              <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className={`rounded-2xl px-4 py-3 text-sm font-semibold transition ${isActive ? "bg-[#3d2c5a] text-white" : "bg-white text-slate-700 hover:bg-[#fff7f2]"}`}>
+              <Link key={item.href} href={item.href} onClick={() => setIsOpen(false)} className={`rounded-2xl px-4 py-3 text-sm font-semibold transition ${isActive ? "bg-[#28c1a1] text-white" : "bg-white text-slate-700 hover:bg-[#fff8f0]"}`}>
                 {item.label}
               </Link>
             );
@@ -82,7 +78,7 @@ export default function SiteShell({ children, activePage = "home" }) {
 
         <div className="mt-auto rounded-[1.25rem] border border-slate-200 bg-white p-4 text-sm text-slate-600">
           <p className="font-semibold text-slate-900">Need a quick reply?</p>
-          <a href="https://wa.me/233551528732?text=Hello%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noreferrer" className="mt-2 inline-flex font-semibold text-[#3d2c5a] hover:text-[#ff7a59]">
+          <a href="https://wa.me/233551528732?text=Hello%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noreferrer" className="mt-2 inline-flex font-semibold text-[#28c1a1] hover:text-[#f59e0b]">
             Chat on WhatsApp
           </a>
         </div>
@@ -97,9 +93,9 @@ export default function SiteShell({ children, activePage = "home" }) {
             <p className="mt-1">Crafted for thoughtful digital growth and lasting brand presence.</p>
           </div>
           <div className="flex flex-wrap gap-4">
-            <a href="mailto:socialsbyaisha@gmail.com" className="transition hover:text-[#3d2c5a]">Email</a>
-            <a href="https://wa.me/233551528732?text=Hello%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noreferrer" className="transition hover:text-[#3d2c5a]">WhatsApp</a>
-            <a href="/portfolio" className="transition hover:text-[#3d2c5a]">Portfolio</a>
+            <a href="mailto:socialsbyaisha7@gmail.com" className="transition hover:text-[#28c1a1]">Email</a>
+            <a href="https://wa.me/233551528732?text=Hello%20I%20would%20like%20to%20inquire%20about%20your%20services" target="_blank" rel="noreferrer" className="transition hover:text-[#28c1a1]">WhatsApp</a>
+            <a href="/portfolio" className="transition hover:text-[#28c1a1]">Portfolio</a>
           </div>
         </div>
       </footer>

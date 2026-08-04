@@ -7,14 +7,14 @@ const members = [
     role: "Video Editor, Graphics Designer & Software Developer",
     description: "Brings visual storytelling, digital design, and technical execution together.",
     image: "/charles.jpeg",
-    accent: "bg-[#f7cfb8]",
+    accent: "bg-[#fff8f0]",
   },
   {
     name: "Aisha",
     role: "Founder & Team Lead",
     description: "Leads strategy, client experience, and the overall brand vision.",
     image: "/aisha.JPEG",
-    accent: "bg-[#3d2c5a] text-white",
+    accent: "bg-[#28c1a1] text-white",
     featured: true,
   },
   {
@@ -38,7 +38,7 @@ export default function TeamPage() {
     <SiteShell activePage="team">
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#3d2c5a]">Team</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#28c1a1]">Team</p>
           <h1 className="mt-3 text-4xl font-semibold text-slate-900 sm:text-5xl">
             The people behind the work, ready to feel more personal and more human.
           </h1>
@@ -60,7 +60,7 @@ export default function TeamPage() {
                 </div>
                 <div className={`mt-5 rounded-[1.25rem] p-4 ${member.accent}`}>
                   <h2 className="text-xl font-semibold">{member.name}</h2>
-                  <p className={`mt-1 text-sm font-medium ${isFeatured ? "text-[#f7cfb8]" : "text-[#3d2c5a]"}`}>{member.role}</p>
+                  <p className={`mt-1 text-sm font-medium ${isFeatured ? "text-[#fff8f0]" : "text-[#28c1a1]"}`}>{member.role}</p>
                   <p className={`mt-3 text-sm leading-7 ${isFeatured ? "text-slate-100" : "text-slate-600"}`}>{member.description}</p>
                 </div>
               </article>

@@ -28,7 +28,7 @@ export default function ServicesPage() {
     <SiteShell activePage="services">
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#3d2c5a]">Services</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#28c1a1]">Services</p>
           <h1 className="mt-3 text-4xl font-semibold text-slate-900 sm:text-5xl">
             Strategic support for brands that want to feel more visible and more intentional online.
           </h1>

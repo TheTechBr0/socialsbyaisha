@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SiteShell from "../components/site-shell";
 
 const highlights = [
@@ -19,17 +20,26 @@ const highlights = [
   },
 ];
 
+const brandLogos = [
+  { src: "/scholarhq.jpeg", name: "The ScholarHQ" },
+  { src: "/sellquic.PNG", name: "SellQuic" },
+  { src: "/selwilliams.PNG", name: "Selwilliam Hotel" },
+  { src: "/cabmeet.jpeg", name: "CabMeet Ghana" },
+  { src: "/vrplanet.PNG", name: "VR Planet" },
+  { src: "/truscrenbattery.PNG", name: "Truscren Battery" },
+];
+
 export default function PortfolioPage() {
   return (
     <SiteShell activePage="portfolio">
       <section className="mx-auto max-w-6xl px-6 py-16 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#3d2c5a]">Portfolio</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#28c1a1]">Portfolio</p>
           <h1 className="mt-3 text-4xl font-semibold text-slate-900 sm:text-5xl">
-            A portfolio page ready for your case studies, project highlights, and PDF upload.
+            A polished portfolio showcase, now linked directly to your latest PDF document.
           </h1>
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            This space can become a full project gallery once you share the PDF, screenshots, and client stories you want to feature.
+            This page keeps the same branded visual language across the site and presents your portfolio in a clean, preview-friendly layout.
           </p>
         </div>
 
@@ -42,17 +52,50 @@ export default function PortfolioPage() {
           ))}
         </div>
 
-        <div className="mt-8 rounded-[1.5rem] border border-dashed border-[#ff7a59]/50 bg-[#fff7f2] p-6 text-sm leading-7 text-slate-700">
-          <p className="font-semibold text-slate-900">Portfolio PDF</p>
-          <p className="mt-2">View or download our portfolio document directly below.</p>
-          <a
-            href="/portfolio.pdf"
-            target="_blank"
-            rel="noreferrer"
-            className="mt-4 inline-flex rounded-full bg-[#3d2c5a] px-5 py-3 font-semibold text-white transition hover:bg-[#2d2144]"
-          >
-            Open portfolio PDF
-          </a>
+        <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-white shadow-sm">
+          <div className="border-b border-slate-100 bg-[#fff8f0] px-5 py-4 text-sm font-semibold text-[#28c1a1]">
+            Portfolio PDF preview
+          </div>
+          <div className="p-3">
+            <object data="/ourportofolio1.pdf" type="application/pdf" className="h-[68vh] w-full rounded-[1.15rem] bg-white">
+              <embed src="/ourportofolio1.pdf" type="application/pdf" className="h-[68vh] w-full rounded-[1.15rem]" />
+              <p className="rounded-[1rem] border border-slate-200 bg-[#fff8f0] p-4 text-sm text-slate-600">
+                Your browser cannot display the PDF inline here. Please use the “View portfolio” button to open it in a new tab.
+              </p>
+            </object>
+          </div>
+          <div className="flex flex-wrap gap-3 border-t border-slate-100 px-5 py-4 text-sm">
+            <a
+              href="/ourportofolio1.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex rounded-full bg-[#28c1a1] px-5 py-3 font-semibold text-white transition hover:bg-[#1f8f7d]"
+            >
+              View portfolio
+            </a>
+          </div>
+        </div>
+
+        <div className="mt-12 rounded-[2rem] border border-slate-200 bg-white p-8 shadow-sm sm:p-10">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#28c1a1]">Brand showcase</p>
+              <h2 className="mt-2 text-3xl font-semibold text-slate-900">Brands we have worked with and continue to celebrate.</h2>
+            </div>
+            <p className="text-sm text-slate-500">Logo-led brand reel.</p>
+          </div>
+
+          <div className="mt-8 overflow-hidden rounded-[1.5rem] border border-slate-200 bg-[#fff8f0] py-5">
+            <div className="brand-marquee flex min-w-max items-center gap-4">
+              {[...brandLogos, ...brandLogos].map((brand, index) => (
+                <div key={`${brand.name}-${index}`} className="brand-card flex h-32 w-44 shrink-0 items-center justify-center rounded-[1.25rem] border border-white/70 bg-white px-4 shadow-sm">
+                  <div className="relative h-14 w-28">
+                    <Image src={brand.src} alt={brand.name} fill className="object-contain" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
     </SiteShell>

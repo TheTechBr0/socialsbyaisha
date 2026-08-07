@@ -41,7 +41,7 @@ const brandLogos = [
   { src: "/selwilliams.PNG", name: "Selwilliam Hotel" },
   { src: "/cabmeet.jpeg", name: "CabMeet Ghana" },
   { src: "/vrplanet.PNG", name: "VR Planet" },
-  { src: "/truscrenbattery.PNG", name: "Truscren Battery" },
+  { src: "/truscrenlogo.png", name: "Truscren Battery" },
 ];
 
 const serviceCards = [
@@ -97,8 +97,6 @@ const stats = [
 
 const founder = featuredPhotos[0];
 const team = featuredPhotos.slice(1);
-const teamPositions = ["left-[2%] top-[8%]", "right-[2%] top-[8%]", "left-1/2 bottom-0 -translate-x-1/2"];
-
 export default function Home() {
   const videoRef = useRef(null);
   const [isPlaying, setIsPlaying] = useState(true);
@@ -176,9 +174,6 @@ export default function Home() {
           </div>
 
           <div className="hero-float relative overflow-hidden rounded-[2rem] border border-slate-200 bg-white shadow-[0_30px_100px_-30px_rgba(15,23,42,0.35)]">
-            <div className="absolute left-4 top-4 z-10 rounded-full bg-[#28c1a1] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-white shadow-lg">
-              Featured hero
-            </div>
             <div className="relative h-[21rem] w-full bg-linear-to-br from-[#f8f5ef] via-[#fff7f2] to-[#f3ebe0] sm:h-[26rem]">
               <Image src="/heroimg.jpeg" alt="Socials by Aisha hero imagery" fill priority className="object-cover" />
               <div className="absolute inset-0 bg-linear-to-t from-[#28c1a1]/20 via-transparent to-white/10" />

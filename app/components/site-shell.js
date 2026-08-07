@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -14,9 +14,19 @@ const navItems = [
 
 export default function SiteShell({ children, activePage = "home" }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(() => {
+    if (typeof window === "undefined") return false;
+    const savedTheme = window.localStorage.getItem("socials-by-aisha-theme");
+    return savedTheme ? savedTheme === "dark" : window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark-theme", isDark);
+    window.localStorage.setItem("socials-by-aisha-theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.16),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(40,193,161,0.18),transparent_24%)] text-slate-800">
+    <div className="site-shell min-h-screen bg-[radial-gradient(circle_at_top_left,rgba(245,158,11,0.16),transparent_22%),radial-gradient(circle_at_bottom_right,rgba(40,193,161,0.18),transparent_24%)] text-slate-800">
       <header className="sticky top-0 z-30 border-b border-slate-200/70 bg-[#f8f5ef]/90 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-2.5 sm:px-6 lg:px-8">
           <Link href="/" className="flex items-center">
@@ -25,7 +35,8 @@ export default function SiteShell({ children, activePage = "home" }) {
             </div>
           </Link>
 
-          <nav className="hidden items-center gap-3.5 text-sm font-medium text-slate-600 md:flex">
+          <div className="flex items-center gap-3">
+            <nav className="hidden items-center gap-3.5 text-sm font-medium text-slate-600 md:flex">
             {navItems.map((item) => {
               const isActive = activePage === item.label.toLowerCase();
               return (
@@ -38,7 +49,17 @@ export default function SiteShell({ children, activePage = "home" }) {
                 </Link>
               );
             })}
-          </nav>
+            </nav>
+            <button
+              type="button"
+              onClick={() => setIsDark((value) => !value)}
+              className="theme-toggle inline-flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 bg-white text-slate-700 shadow-sm transition hover:border-[#28c1a1] hover:text-[#28c1a1]"
+              aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+              title={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              <span aria-hidden className="text-base">{isDark ? "☀" : "☾"}</span>
+            </button>
+          </div>
 
           <button
             type="button"

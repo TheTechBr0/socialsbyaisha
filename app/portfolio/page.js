@@ -26,7 +26,7 @@ const brandLogos = [
   { src: "/selwilliams.PNG", name: "Selwilliam Hotel" },
   { src: "/cabmeet.jpeg", name: "CabMeet Ghana" },
   { src: "/vrplanet.PNG", name: "VR Planet" },
-  { src: "/truscrenbattery.PNG", name: "Truscren Battery" },
+  { src: "/truscrenlogo.png", name: "Truscren Battery" },
 ];
 
 export default function PortfolioPage() {
@@ -57,12 +57,18 @@ export default function PortfolioPage() {
             Portfolio PDF preview
           </div>
           <div className="p-3">
-            <object data="/ourportofolio1.pdf" type="application/pdf" className="h-[68vh] w-full rounded-[1.15rem] bg-white">
-              <embed src="/ourportofolio1.pdf" type="application/pdf" className="h-[68vh] w-full rounded-[1.15rem]" />
-              <p className="rounded-[1rem] border border-slate-200 bg-[#fff8f0] p-4 text-sm text-slate-600">
-                Your browser cannot display the PDF inline here. Please use the “View portfolio” button to open it in a new tab.
-              </p>
-            </object>
+            <div className="portfolio-mobile-open rounded-[1.15rem] border border-[#28c1a1]/20 bg-[#fff8f0] p-5 sm:p-6">
+              <p className="text-sm leading-7 text-slate-600">Open the portfolio in your browser for the best reading experience on mobile and desktop.</p>
+              <a
+                href="/ourportofolio1.pdf"
+                target="_blank"
+                rel="noreferrer"
+                className="mt-4 inline-flex rounded-full bg-[#28c1a1] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#1f8f7d]"
+              >
+                Open portfolio PDF
+              </a>
+            </div>
+            <iframe title="Socials by Aisha portfolio PDF" src="/ourportofolio1.pdf#view=FitH" className="portfolio-frame mt-3 hidden h-[68vh] w-full rounded-[1.15rem] border-0 bg-white lg:block" />
           </div>
           <div className="flex flex-wrap gap-3 border-t border-slate-100 px-5 py-4 text-sm">
             <a
